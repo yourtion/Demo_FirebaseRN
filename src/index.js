@@ -10,6 +10,7 @@ import {
   Text,
   View,
   ListView,
+  AlertIOS,
 } from 'react-native';
 
 import config from './config'
@@ -31,12 +32,31 @@ class Index extends Component {
         rowHasChanged: (row1, row2) => row1 !== row2,
       })
     };
+    this.itemsRef = firebaseApp.database().ref().child('items');
+  }
+
+  listenForItems(itemsRef) {
+    console.log(itemsRef);
+    itemsRef.on('value', (snap) => {
+      console.log(snap);
+      // get children as an array
+      var items = [];
+      snap.forEach((child) => {
+        items.push({
+          title: child.val().title,
+          _key: child.key        
+        });
+      });
+      console.log(items);
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(items)
+      });
+
+    });
   }
 
   componentDidMount() {
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRows([{ title: 'Pizza' }])
-    })
+    this.listenForItems(this.itemsRef);
   }
 
   _renderItem(item) {
