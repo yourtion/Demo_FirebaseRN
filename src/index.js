@@ -65,6 +65,19 @@ class Index extends Component {
     );
   }
 
+  _addItem() {
+    console.log('aaaaaa');
+    AlertIOS.prompt('Add New Item',null,
+      [{
+        text: 'Add',
+        onPress: (text) => {
+          this.itemsRef.push({ title: text })
+        }
+      },],
+      'plain-text'
+    );
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -73,7 +86,7 @@ class Index extends Component {
 
         <ListView dataSource={this.state.dataSource} renderRow={this._renderItem.bind(this)} style={styles.listview} />
 
-        <ActionButton title="Add" />
+        <ActionButton title="Add" onPress={this._addItem.bind(this)} />
 
       </View>
     );
