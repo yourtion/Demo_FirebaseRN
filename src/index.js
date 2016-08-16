@@ -60,8 +60,18 @@ class Index extends Component {
   }
 
   _renderItem(item) {
+    const onPress = () => {
+      AlertIOS.prompt('Complete',null,
+        [
+          {text: 'Complete', onPress: (text) => this.itemsRef.child(item._key).remove()},
+          {text: 'Cancel', onPress: (text) => console.log('Cancel')}
+        ],
+        'default'
+      );
+    };
+
     return (
-      <ListItem item={item} />
+      <ListItem item={item} onPress={onPress} />
     );
   }
 
