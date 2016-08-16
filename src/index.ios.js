@@ -11,6 +11,10 @@ import {
   Text,
   View
 } from 'react-native';
+import config from './config'
+import * as firebase from 'firebase';
+
+const firebaseApp = firebase.initializeApp(config.firebase);
 
 class FirebaseRN extends Component {
   render() {
