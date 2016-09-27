@@ -19,7 +19,7 @@
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
-//  [[RCTBundleURLProvider sharedSettings] setJsLocation:@"192.168.31.186"];
+  [[RCTBundleURLProvider sharedSettings] setJsLocation:@"192.168.1.22"];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"FirebaseRN"
                                                initialProperties:nil

@@ -38,3 +38,5 @@ jspm_packages
 
 .idea
 config.js
+ios/FirebaseRN.xcodeproj/project.xcworkspace/xcuserdata
+ios/FirebaseRN.xcodeproj/xcuserdata
