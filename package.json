@@ -3,11 +3,20 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "(JS_DIR=`pwd`/src; cd node_modules/react-native; npm run start -- --root $JS_DIR)"
+    "start": "(JS_DIR=`pwd`/src; cd node_modules/react-native; npm run start -- --root $JS_DIR)",
+    "lint": "eslint src --fix"
+  },
+  "eslintConfig": {
+    "extends": "guo/react-native"
   },
   "dependencies": {
     "firebase": "^3.4.0",
     "react": "15.3.2",
     "react-native": "0.34.0"
+  },
+  "devDependencies": {
+    "eslint-config-guo": "0.0.3",
+    "eslint-plugin-react": "^6.3.0",
+    "eslint-plugin-react-native": "^2.0.0"
   }
 }
