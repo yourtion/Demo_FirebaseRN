@@ -3,12 +3,12 @@
 import { StyleSheet } from 'react-native';
 
 const constants = {
-  actionColor: '#24CE84'
+  actionColor: '#24CE84',
 };
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#F2F2F2',
     flex: 1,
   },
   listview: {
@@ -38,12 +38,12 @@ var styles = StyleSheet.create({
     borderWidth: 1,
     justifyContent: 'center',
     height: 44,
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   navbarTitle: {
     color: '#444',
     fontSize: 16,
-    fontWeight: "500"
+    fontWeight: '500',
   },
   statusbar: {
     backgroundColor: '#fff',
@@ -65,7 +65,7 @@ var styles = StyleSheet.create({
     paddingTop: 14,
     paddingBottom: 16,
   },
-})
+});
 
-module.exports = styles
+module.exports = styles;
 module.exports.constants = constants;

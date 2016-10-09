@@ -1,9 +1,9 @@
 'use strict';
 
-import React, {Component} from 'react';
-import { 
-  Text, 
-  View
+import React, { Component } from 'react';
+import {
+  Text,
+  View,
 } from 'react-native';
 const styles = require('../styles.js');
 

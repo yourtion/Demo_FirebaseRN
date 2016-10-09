@@ -7,13 +7,12 @@
 
 import React, { Component } from 'react';
 import {
-  Text,
   View,
   ListView,
   AlertIOS,
 } from 'react-native';
 
-import config from './config'
+import config from './config';
 import * as firebase from 'firebase';
 
 const StatusBar = require('./components/StatusBar');
@@ -30,26 +29,23 @@ class Index extends Component {
     this.state = {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
-      })
+      }),
     };
     this.itemsRef = firebaseApp.database().ref().child('items');
   }
 
   listenForItems(itemsRef) {
-    console.log(itemsRef);
     itemsRef.on('value', (snap) => {
-      console.log(snap);
       // get children as an array
-      var items = [];
+      const items = [];
       snap.forEach((child) => {
         items.push({
           title: child.val().title,
-          _key: child.key        
+          _key: child.key,
         });
       });
-      console.log(items);
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(items)
+        dataSource: this.state.dataSource.cloneWithRows(items),
       });
 
     });
@@ -61,10 +57,11 @@ class Index extends Component {
 
   _renderItem(item) {
     const onPress = () => {
-      AlertIOS.prompt('Complete',null,
+      AlertIOS.prompt('Complete', null,
         [
-          {text: 'Complete', onPress: (text) => this.itemsRef.child(item._key).remove()},
-          {text: 'Cancel', onPress: (text) => console.log('Cancel')}
+          { text: 'Complete', onPress: (_text) => this.itemsRef.child(item._key).remove() },
+          // eslint-disable-next-line
+          { text: 'Cancel', onPress: (_text) => console.log('Cancel') },
         ],
         'default'
       );
@@ -76,14 +73,13 @@ class Index extends Component {
   }
 
   _addItem() {
-    console.log('aaaaaa');
-    AlertIOS.prompt('Add New Item',null,
+    AlertIOS.prompt('Add New Item', null,
       [{
         text: 'Add',
         onPress: (text) => {
-          this.itemsRef.push({ title: text })
-        }
-      },],
+          this.itemsRef.push({ title: text });
+        },
+      }],
       'plain-text'
     );
   }

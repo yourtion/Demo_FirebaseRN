@@ -6,11 +6,11 @@
  */
 
 import React, { Component } from 'react';
-import {AppRegistry} from 'react-native';
-import Index from './index.js'
+import { AppRegistry } from 'react-native';
+import Index from './index.js';
 
 class FirebaseRN extends Component {
-    render() {
+  render() {
     return (
       <Index />
     );
